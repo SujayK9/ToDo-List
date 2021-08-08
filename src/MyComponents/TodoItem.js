@@ -18,10 +18,6 @@ const bstyle={
  
 }
 
-const checked={
-  backgroundColor:"red",
-  color:"white",
-}
 
 const refNode1=useRef(null)
 const refNode2=useRef(null)   
