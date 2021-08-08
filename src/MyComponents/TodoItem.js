@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 
 
 
@@ -18,12 +18,18 @@ const bstyle={
  
 }
 
-    
+const checked={
+  backgroundColor:"red",
+  color:"white",
+}
+
+const refNode1=useRef(null)
+const refNode2=useRef(null)   
   //console.log(handleChange);
   return (
       <>
       
-      <div style={myStyle}>
+      <div ref={refNode1} style={myStyle}>
      
         <h3 style={{margin: "0px"}}>{todo.title}</h3>
        
@@ -31,7 +37,12 @@ const bstyle={
         <button className="btn btn-sm " style={bstyle}  onClick={() => { onDelete(todo) }}>Delete</button>
         <div className="form-check" style={{ float:"right"}}>
        
-          <input className="form-check-input" type="checkbox"  value="" />
+          <input ref={refNode2} className="form-check-input" type="checkbox" onClick={()=>{
+            //console.log(refNode2.current.checked)
+            refNode2.current.checked?
+            refNode1.current.style.backgroundColor="brown"
+          :
+          refNode1.current.style.backgroundColor="#d02f47"}} value="" />
             <label className="form-check-label"  htmlFor="flexCheckDefault">
               DONE
         </label>
